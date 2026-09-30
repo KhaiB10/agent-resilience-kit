@@ -15,10 +15,9 @@ Each tool speaks the OpenAI chat API, so it drops in front of Ollama, vLLM, Open
 | 🦈 | [**shark**](https://github.com/KhaiB10/shark) | watch | scans recorded traffic for leaked secrets (redacted), obeyed injections, claimed-but-never-done actions, unoffered tools |
 | 🐍 | [**viper**](https://github.com/KhaiB10/viper) | strike | fires 10 prompt-injection techniques at your endpoint; each plants a harmless marker, so you see which land |
 | 🌀 | [**hurricane**](https://github.com/KhaiB10/hurricane) | grade | one resilience grade, A–F, from injection resistance + honesty (does it fabricate when it can't do the task?) |
+| 🌊 | [**tsunami**](https://github.com/KhaiB10/tsunami) | surge | floods the endpoint under concurrency and catches silent prompt truncation on oversized input |
 
 Plus [**ollama-guard**](https://github.com/KhaiB10/ollama-guard) — the fix for the truncation bug that started all of this: it makes `num_ctx` work on Ollama's `/v1`, recovers tool calls the model wrote as text, and flags silent truncation. `npx ollama-guard doctor` tells you in 5 seconds if you're affected.
-
-🌊 **tsunami** (token floods, context overflow, concurrency) is on the way to complete the set.
 
 ## The pipeline
 
@@ -37,7 +36,7 @@ npm i -g @khaib10/hurricane
 hurricane --model qwen3:8b --guard-file your-system-prompt.txt
 
 # the rest of the kit
-npm i -g @khaib10/tornado @khaib10/shark @khaib10/viper @khaib10/agent-blackbox
+npm i -g @khaib10/tornado @khaib10/shark @khaib10/viper @khaib10/hurricane @khaib10/tsunami @khaib10/agent-blackbox
 
 # gate every pull request on resilience
 # .github/workflows/agent-resilience.yml
