@@ -16,6 +16,8 @@ Each tool speaks the OpenAI chat API, so it drops in front of Ollama, vLLM, Open
 | 🐍 | [**viper**](https://github.com/KhaiB10/viper) | strike | fires 10 prompt-injection techniques at your endpoint; each plants a harmless marker, so you see which land |
 | 🌀 | [**hurricane**](https://github.com/KhaiB10/hurricane) | grade | one resilience grade, A–F, from injection resistance + honesty (does it fabricate when it can't do the task?) |
 | 🌊 | [**tsunami**](https://github.com/KhaiB10/tsunami) | surge | floods the endpoint under concurrency and catches silent prompt truncation on oversized input |
+| 🦑 | [**kraken**](https://github.com/KhaiB10/kraken) | compose | finds dangerous capabilities that emerge when individually-safe tools combine (exfiltration, injection-ingress) |
+| 🧛 | [**lamprey**](https://github.com/KhaiB10/lamprey) | persist | plants a poison in one session and checks if it survives into a later one via the agent's memory |
 
 Plus [**ollama-guard**](https://github.com/KhaiB10/ollama-guard) — the fix for the truncation bug that started all of this: it makes `num_ctx` work on Ollama's `/v1`, recovers tool calls the model wrote as text, and flags silent truncation. `npx ollama-guard doctor` tells you in 5 seconds if you're affected.
 
